@@ -1,0 +1,101 @@
+<md-card ng-show="$ctrl.editItem || $ctrl.newItem || $ctrl.viewItem">
+	<md-divider flex></md-divider>
+	<form name="iform">
+	<div layout-padding >
+	<br>
+		<div layout="row" layout-wrap >
+
+			<md-input-container class="iForm" >
+				<label>Item Id (Bar Code)</label>
+				<input type="text" ng-model="$ctrl.obj.itemCode" ng-readonly="$ctrl.justInfo" required name="code">
+			</md-input-container class="iForm">
+			<md-input-container class="iForm"  flex="55">
+				<label>Item Name</label>
+				<input type="text" ng-model="$ctrl.obj.itemName" ng-readonly="$ctrl.justInfo" required name="name">
+			</md-input-container class="iForm">
+			<md-input-container class="iForm" ng-hide ="!$ctrl.obj.itemType && $ctrl.justInfo">
+				<label>Item Type</label>
+				<input type="text" ng-model="$ctrl.obj.itemType" ng-readonly="$ctrl.justInfo">
+			</md-input-container class="iForm">
+			<md-input-container class="iForm"  ng-hide ="!$ctrl.obj.itemAmount && $ctrl.justInfo">
+				<label>Item Amount</label>
+				<input type="number" ng-model="$ctrl.obj.itemAmount" ng-readonly="$ctrl.justInfo">
+			</md-input-container class="iForm">
+			<md-input-container class="iForm" ng-hide ="!$ctrl.obj.itemBrand && $ctrl.justInfo">
+				<label>Item Brand</label>
+				<input type="text" ng-model="$ctrl.obj.itemBrand" ng-readonly="$ctrl.justInfo">
+			</md-input-container class="iForm">
+			<md-input-container class="iForm" ng-hide ="!$ctrl.obj.itemProvider && $ctrl.justInfo" style="width:175px;margin-right:10px;">
+        		<label>Provider</label>
+		        <md-select ng-model="$ctrl.obj.itemProvider" ng-disabled="$ctrl.justInfo">    				
+		          <md-option ng-repeat="pro in providersList" value="{{pro}}">
+		            {{pro}}
+		          </md-option>
+		        </md-select>
+		     </md-input-container class="iForm">
+			<md-input-container class="iForm" ng-hide ="!$ctrl.obj.itemBuyPrice && $ctrl.justInfo">
+				<label>Item Price</label>
+				<input type="number" ng-model="$ctrl.obj.itemBuyPrice" ng-readonly="$ctrl.justInfo">
+			</md-input-container class="iForm">
+			<!-- input para assembly name -->
+			<md-input-container class="iForm" flex="20" ng-hide ="!$ctrl.obj.itemAssemblyName && $ctrl.justInfo" style="width:175px;margin-right:10px;">
+        		<label>Assembly Name</label>
+		        <md-select ng-model="$ctrl.obj.itemAssemblyName" ng-disabled="$ctrl.justInfo">
+		          <md-option ng-repeat="assembly in assembliesList" value="{{assembly}}">
+		            {{assembly}}
+		          </md-option>
+		        </md-select>
+		     </md-input-container class="iForm">
+		     <!-- input para assembly name -->
+
+			<md-input-container class="iForm" ng-hide ="!$ctrl.obj.itemCategorie && $ctrl.justInfo">
+				<label>Item Categorie</label>
+				<input type="text" ng-model="$ctrl.obj.itemCategorie" ng-readonly="$ctrl.justInfo">
+			</md-input-container class="iForm">
+			<md-input-container class="iForm" ng-hide ="!$ctrl.obj.itemLocation && $ctrl.justInfo">
+				<label>Item Location</label>
+				<input type="text" ng-model="$ctrl.obj.itemLocation" ng-readonly="$ctrl.justInfo">
+			</md-input-container class="iForm">
+			<md-input-container class="iForm" ng-hide ="!$ctrl.obj.itemRawMaterialProfil && $ctrl.justInfo">
+				<label>Item Profil</label>
+				<input type="text" ng-model="$ctrl.obj.itemRawMaterialProfil" ng-readonly="$ctrl.justInfo">
+			</md-input-container class="iForm">
+			<md-input-container class="iForm" ng-hide ="!$ctrl.obj.itemRawMaterialDimensions && $ctrl.justInfo" flex="30">
+				<label>Item Raw Material Dimentions</label>
+				<input type="text" ng-model="$ctrl.obj.itemRawMaterialDimensions" ng-readonly="$ctrl.justInfo">
+			</md-input-container class="iForm">
+			<md-input-container class="iForm" ng-hide ="(!$ctrl.obj.itemLastDate && $ctrl.justInfo) || $ctrl.editItem || $ctrl.newItem"  >
+				<label>Last Date</label>
+				<input type="date" ng-model="$ctrl.obj.itemLastDate" datetime="MM/dd/yyyy" ng-readonly="$ctrl.justInfo">
+			</md-input-container class="iForm">
+			<md-input-container class="iForm" ng-show ="$ctrl.justInfo">
+				<label>Last Person</label>
+				<input type="text" ng-model="$ctrl.obj.itemLastPerson.userName" ng-readonly="$ctrl.justInfo">
+			</md-input-container class="iForm">
+			<md-input-container class="iForm" ng-show ="$ctrl.justInfo">
+				<label>Last Person Amount</label>
+				<input type="text" ng-model="$ctrl.obj.itemLastPerson.insertedAmount" ng-readonly="$ctrl.justInfo">
+			</md-input-container class="iForm">
+
+			
+			
+		    <div ng-show="$ctrl.editItem">
+		    	<i ng-hide="iform.code.$error.required || iform.name.$error.required"  ng-click="update$ctrl.Obj($ctrl.obj)" layout-padding class="fa fa-check-circle fa-2x text-success" >	
+		    </i>&nbsp; &nbsp; &nbsp;
+		    </div>
+		    <div ng-show="$ctrl.editItem">
+		    	<i  ng-click="$ctrl.editItem=false"  layout-padding class="fa fa-times fa-2x text-danger"></i>
+		    	&nbsp; &nbsp; &nbsp;
+		    </div>
+		    <div ng-show="$ctrl.newItem">
+		    	 <i ng-hide="iform.code.$error.required || iform.name.$error.required " ng-click="create$ctrl.Obj($ctrl.obj)" layout-padding class="fa fa-check-circle fa-2x text-success"></i>
+		    	&nbsp; &nbsp; &nbsp;
+		    </div>
+		   
+		    <i ng-show="$ctrl.newItem" ng-click="$ctrl.newItem=false"  layout-padding class="fa fa-times fa-2x text-danger"></i>
+		    <i ng-show="$ctrl.viewItem" ng-click="$ctrl.viewItem=false"  layout-padding class="fa fa-times fa-2x text-danger"></i>
+		</div>
+		
+	</div>
+</form>
+</md-card>

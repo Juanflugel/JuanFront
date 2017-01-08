@@ -1,0 +1,47 @@
+<md-card layout="row" flex>
+	<!-- SEARCH COMPONENT  -->
+	<search-header flex collection='$ctrl.collection' currently-selected="$ctrl.currentlySelected"></search-header>
+	<!-- THE DROP DOWN MENU AT THE RIGTH OF THE PAGE -->
+	<md-menu-bar class="searchHeader">
+		<md-menu class="md-secondary">
+	        <md-button class="md-icon-button" aria-label="Open" ng-click="$mdOpenMenu($event)">
+	            <i class="fa fa-ellipsis-v fa-lg"aria-hidden="true"></i>
+	        </md-button>
+	        <md-menu-content width="4">
+	        	<md-menu-item>
+	                <md-button>
+	                    <span > Actions ...</span>
+	                </md-button>
+	            </md-menu-item>
+	        	<md-menu-divider></md-menu-divider>
+	            <md-menu-item>
+	                <md-button ng-click="$ctrl.createNewItem()">
+	                    <span > <i class="fa fa-plus " ></i> &nbsp; &nbsp; Create a New Item</span>
+	                </md-button>
+	            </md-menu-item>
+	            <md-menu-item>
+	                <md-button ng-click="$ctrl.initNewAssembly()">
+	                    <span > <i class="fa fa-cubes "></i> &nbsp;  Create a New Assembly </span>
+	                </md-button>
+	            </md-menu-item>
+	            <md-menu-item>
+	                <md-button ng-click="">
+	                    <span ><i class="fa fa-book" aria-hidden="true"></i> &nbsp;&nbsp;  Create a New Order </span>
+	                </md-button>
+	            </md-menu-item>
+	            <md-menu-divider></md-menu-divider>
+	            <md-menu-item>
+	                <md-button ng-click="callColToDownload()">
+	                    <span ><i class="fa fa-download" aria-hidden="true"></i> &nbsp;&nbsp;  Download CSV Pendings </span>
+	                </md-button>
+	            </md-menu-item>
+
+	        </md-menu-content>
+	    </md-menu>
+	</md-menu-bar>
+</md-card>
+
+<i-form just-info="$ctrl.justInfo" view-item="$ctrl.viewItem" new-item="$ctrl.newItem" edit-item ='$ctrl.editItem' obj="$ctrl.obj"></i-form>
+<new-assembly-header new-assembly="$ctrl.newAssembly" currently-selected="$ctrl.currentlySelected" collection='$ctrl.collection'></new-assembly-header>
+
+<i-table currently-selected="$ctrl.currentlySelected" collection='$ctrl.collection' just-info="$ctrl.justInfo" view-item="$ctrl.viewItem" new-item="$ctrl.newItem" edit-item="$ctrl.editItem" obj="$ctrl.obj" new-assembly="$ctrl.newAssembly"></i-table>

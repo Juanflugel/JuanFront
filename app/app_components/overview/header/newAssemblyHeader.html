@@ -1,0 +1,32 @@
+<form name="aform" flex ng-show="$ctrl.newAssembly">
+<md-card flex>
+
+	<div  layout="row" layout-aling="center center">
+		
+		<md-input-container md-no-float flex="20" class="searchHeader">
+		      <input ng-model="$ctrl.assembly.assemblyName" type="text" placeholder="Assembly Name" flex required name="name">
+		</md-input-container >
+		
+		<md-input-container md-no-float flex="20" class="searchHeader">
+		      <input ng-model="$ctrl.assembly.assemblyNumber" type="text" placeholder="Assembly Number" required name="number">
+		</md-input-container>
+
+		<span layout="row" flex layout-align="center center">
+			{{$ctrl.itemsForAssembly.length}} items Inserted in Assembly
+		</span>
+		<span ></span>
+		<span layout="row" layout-align="center center" ng-click="$ctrl.insertItemsInAssembly()" flex ="15">
+			<i class="fa fa-upload text-success"></i> &nbsp; Insert Items
+		</span>
+		<span class="formButtons" ng-hide="aform.number.$error.required || aform.name.$error.required" layout="row" layout-align="center center" ng-click="$ctrl.createNewAssembly($ctrl.assembly)" >
+			<i class="fa fa-check-circle fa-lg text-success"></i>
+			 &nbsp; Create Assembly
+		</span>
+		<span class="formButtons"  ng-click="$ctrl.forgetAssembly()" layout="row" layout-align="center center">
+			<i class="fa fa-times fa-lg text-danger"></i> 
+		</span>
+		
+
+	</div>
+</md-card>
+</form>

@@ -1,0 +1,40 @@
+body,button, html, input, select, textarea,td,p {
+    font-family: Roboto,"Helvetica Neue",sans-serif;
+    font-size: 13px !important;
+}
+th{
+	font-weight: 500;
+	color:#757575;
+	padding-top: 15px !important;
+
+}
+span:focus,i:focus{
+	outline: none;
+    border: 0;
+}
+/*BUTTONS WITH FONT ICONS USER FORMS*/
+.formButtons{
+	margin: 0px 15px;
+}
+.md-button{
+	line-height: 50px !important;
+}
+.searchHeader{
+	margin: 10px 25px;
+	height: 40px;
+}
+td.iTable {
+	padding: 18px 25px !important;
+}
+/*JUST TO ADJUST THE MENU IN THE OVERVIEW PANEL*/
+md-menu-content.md-dense md-menu-item {
+	height: 45px;
+}
+md-menu-content.md-menu-bar-menu.md-dense .md-button {
+	height: 50px;
+}
+
+/*TO GIVE A BETTER APARIENCE TO THE IFORM COMPONENT*/
+.iForm {
+	margin: 10px 20px;
+}

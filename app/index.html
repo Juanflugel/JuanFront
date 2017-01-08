@@ -1,0 +1,38 @@
+<html ng-app="eStockFront">
+<head>
+	<title>eStock</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" type="image/ico" href="icon.png" />
+	<link rel="stylesheet" type="text/css" href="../node_modules/angular-material/angular-material.css">
+	<link rel="stylesheet" type="text/css" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body layout="row" flex>
+	<div ui-view flex layout="column"></div>
+</body>
+<!-- LIBRARIES -->
+<script type="text/javascript" src="../node_modules/angular/angular.js"></script>
+<script type="text/javascript" src="../node_modules/angular-resource/angular-resource.js"></script>
+<script type="text/javascript" src="../node_modules/angular-animate/angular-animate.js"></script>
+<script type="text/javascript" src="../node_modules/angular-aria/angular-aria.js"></script>
+<script type="text/javascript" src="../node_modules/angular-material/angular-material.js"></script>
+<script type="text/javascript" src="../node_modules/angular-ui-router/release/angular-ui-router.js"></script>
+
+<script type="text/javascript" src="../node_modules/underscore/underscore.js"></script>
+
+<!-- APP MODULES -->
+<script type="text/javascript" src="services.js"></script>
+<script type="text/javascript" src="app_components/menu/menu.js"></script>
+<script type="text/javascript" src="app_components/overview/overviewPanel.js"></script>
+<script type="text/javascript" src="app_components/overview/searchHeader/searchHeader.js"></script>
+<script type="text/javascript" src="app_components/overview/header/newAssemblyHeader.js"></script>
+<script type="text/javascript" src="app_components/overview/iForm/iForm.js"></script>
+<script type="text/javascript" src="app_components/overview/iTable/iTable.js"></script>
+
+
+<script type="text/javascript" src="app.js"></script>
+</html>
