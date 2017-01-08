@@ -2,6 +2,7 @@
 	<!-- SEARCH COMPONENT  -->
 	<search-header flex collection='$ctrl.collection' currently-selected="$ctrl.currentlySelected"></search-header>
 	<!-- THE DROP DOWN MENU AT THE RIGTH OF THE PAGE -->
+	<span id="csvDownloadTag" ng-csv="$ctrl.toDownload" filename="Pendings.csv" csv-header="['Item Code','Item Name', 'Item Type', 'Provider','Baugruppe','Stock','Needed']" charset="utf-8"></span>
 	<md-menu-bar class="searchHeader">
 		<md-menu class="md-secondary">
 	        <md-button class="md-icon-button" aria-label="Open" ng-click="$mdOpenMenu($event)">
@@ -31,7 +32,7 @@
 	            </md-menu-item>
 	            <md-menu-divider></md-menu-divider>
 	            <md-menu-item>
-	                <md-button ng-click="callColToDownload()">
+	                <md-button ng-click="$ctrl.downloadCsv()">
 	                    <span ><i class="fa fa-download" aria-hidden="true"></i> &nbsp;&nbsp;  Download CSV Pendings </span>
 	                </md-button>
 	            </md-menu-item>

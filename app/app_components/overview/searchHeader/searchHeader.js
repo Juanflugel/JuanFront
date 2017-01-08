@@ -12,13 +12,15 @@ angular.module('eStock.overview.searchHeader',[])
 
 function searchHeaderController (shop) {
 	var ctrl = this;
+    ctrl.companyId = shop.getCompanyId();
 	ctrl.collection = [];
+    ctrl.filterBy = shop.getCompanyFilters();
 	// FUNCTION TO SEARCH A ITEM BY CODE OR NAME FORM MAIN INPUT
 	ctrl.queryByCodeOrName = function(){ 
         var query = {};
         ctrl.filterModel =''; // CLEAN THE OTHER MODEL
         ctrl.queryTag = '';
-        query.companyId = ctrl.firmaId || 'RMB01';
+        query.companyId = ctrl.companyId || 'RMB01';
         query.string = ctrl.search;
 
         if (ctrl.search === '') return;
@@ -36,7 +38,18 @@ function searchHeaderController (shop) {
                         // });   
             	},function (error){
                         console.log(error);
-                }); 
+                }
+            ); 
         }     
+    };
+    ctrl.queryByFilter = function(){
+        ctrl.search = '';
+        var query = {};
+        query.companyId = ctrl.companyId;
+        query[ctrl.filterModel.queryObjKey] = ctrl.queryTag;
+        shop.items.query(query,function (response){
+            ctrl.collection = response;
+        },function (error){});
+
     };
 }

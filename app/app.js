@@ -1,12 +1,21 @@
 angular.module('eStockFront',[
-	'ngMaterial',	'ui.router','services',
+	'ngMaterial',	'ui.router','ngSanitize', 'ngCsv',
+  'services',
   'eStock.menu',
   'eStock.overview.panel','eStock.overview.searchHeader','eStock.overview.iTable','eStock.overview.iForm','eStock.overview.newAssemblyHeader'
 
   ])
 
-.controller('monda',['$scope',function ($scope){
-	console.log('coman monda');
+.run(['shop','$rootScope',function (shop,$rootScope){
+
+  var firmaId = "RMB01";
+
+  shop.company.query({companyId:firmaId}, function (data){
+        console.log('from run',data[0]);
+        shop.passCompanyInfo(data[0]);
+        $rootScope.$broadcast("companyInfoAvailable");
+    });
+
 }])
 
 .config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider) {

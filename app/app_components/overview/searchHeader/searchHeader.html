@@ -14,7 +14,7 @@
 		<p layout-margin layout-padding>:</p>
 
 		<md-input-container flex="20" md-no-float class="searchHeader"> 
-			<md-select ng-model="$ctrl.queryTag" placeholder="Select a {{$ctrl.filterModel.tagToShow}}" ng-change="queryByFilter()">
+			<md-select ng-model="$ctrl.queryTag" placeholder="Select a {{$ctrl.filterModel.tagToShow}}" ng-change="$ctrl.queryByFilter()">
 			<md-option ng-value ="tag" ng-repeat="tag in $ctrl.filterModel.array">{{tag}}</md-option>
 			</md-select>
 		</md-input-container>
