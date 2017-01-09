@@ -1,8 +1,9 @@
 angular.module('eStockFront',[
 	'ngMaterial',	'ui.router','ngSanitize', 'ngCsv',
-  'services',
+  'services','auxiliarFuctions',
   'eStock.menu',
-  'eStock.overview.panel','eStock.overview.searchHeader','eStock.overview.iTable','eStock.overview.iForm','eStock.overview.newAssemblyHeader'
+  'eStock.overview.panel','eStock.overview.searchHeader','eStock.overview.iTable','eStock.overview.iForm',
+  'eStock.overview.newAssemblyHeader','eStock.overview.newOrderHeader'
 
   ])
 

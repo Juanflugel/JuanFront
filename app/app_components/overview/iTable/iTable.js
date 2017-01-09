@@ -13,6 +13,7 @@ angular.module('eStock.overview.iTable',[])
         justInfo:'=',
         viewItem:'=',
         newAssembly:'=',
+        newOrder:'=',
         currentlySelected:'='
     }
 });

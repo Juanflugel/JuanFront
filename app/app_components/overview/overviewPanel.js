@@ -4,13 +4,13 @@
 	angular.module('eStock.overview.panel',[])
 	.component('viewPanel',{
 	    templateUrl:'app_components/overview/overviewPanel.html',
-	    controller : ['shop','$timeout',overviewPanelController]
+	    controller : ['shop','$timeout','auxiliarFuctions',overviewPanelController]
 	})
 
-	function overviewPanelController (shop,$timeout){
+	function overviewPanelController (shop,$timeout,auxiliarFuctions){
 		var ctrl = this;
 		ctrl.companyId = shop.getCompanyId();
-			
+		ctrl.filterBy = shop.getCompanyFilters();
 
 		ctrl.queryItems = function(){
 			var query = {};
@@ -31,6 +31,10 @@
 		}
 
 		ctrl.initNewAssembly = function(){
+			ctrl.newItem = false;
+			ctrl.editItem = false;
+			ctrl.viewItem = false;
+			ctrl.newOrder = false;
 			ctrl.newAssembly = true;
 		}
 
@@ -43,12 +47,20 @@
 			query.companyId = ctrl.companyId;
 			query.projectState = 'OPEN';
 			shop.downloadPendings.get(query,function (response){
-            //ctrl.toDownload = handleProjects.orderFromCollection(response.data);
-            console.log(response);
-            ctrl.toDownload = response.data;
+            ctrl.toDownload = auxiliarFuctions.normalizeData(response.data);          
             ctrl.triggerClick();           
-        	},function (error){});
-		}
+        	},function (error){
+        		console.log(error);
+        	});
+		};
+
+		ctrl.initNewOrder = function(){
+			ctrl.newAssembly = false;
+			ctrl.newItem = false;
+			ctrl.editItem = false;
+			ctrl.viewItem = false;
+			ctrl.newOrder = true;
+		};
 
 	}
 

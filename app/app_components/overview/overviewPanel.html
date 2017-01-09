@@ -26,7 +26,7 @@
 	                </md-button>
 	            </md-menu-item>
 	            <md-menu-item>
-	                <md-button ng-click="">
+	                <md-button ng-click="$ctrl.initNewOrder()">
 	                    <span ><i class="fa fa-book" aria-hidden="true"></i> &nbsp;&nbsp;  Create a New Order </span>
 	                </md-button>
 	            </md-menu-item>
@@ -45,4 +45,6 @@
 <i-form just-info="$ctrl.justInfo" view-item="$ctrl.viewItem" new-item="$ctrl.newItem" edit-item ='$ctrl.editItem' obj="$ctrl.obj"></i-form>
 <new-assembly-header new-assembly="$ctrl.newAssembly" currently-selected="$ctrl.currentlySelected" collection='$ctrl.collection'></new-assembly-header>
 
-<i-table currently-selected="$ctrl.currentlySelected" collection='$ctrl.collection' just-info="$ctrl.justInfo" view-item="$ctrl.viewItem" new-item="$ctrl.newItem" edit-item="$ctrl.editItem" obj="$ctrl.obj" new-assembly="$ctrl.newAssembly"></i-table>
+<new-order-header new-order="$ctrl.newOrder" collection='$ctrl.collection'></new-order-header>
+
+<i-table currently-selected="$ctrl.currentlySelected" collection='$ctrl.collection' just-info="$ctrl.justInfo" view-item="$ctrl.viewItem" new-item="$ctrl.newItem" edit-item="$ctrl.editItem" obj="$ctrl.obj" new-assembly="$ctrl.newAssembly" new-order="$ctrl.newOrder"></i-table>
