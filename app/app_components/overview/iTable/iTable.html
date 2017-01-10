@@ -14,7 +14,7 @@
     		<tbody>
 	   		<tr ng-repeat="sample in $ctrl.collection | filter:search | orderBy:$ctrl.predicate:$ctrl.reverse" class="text-center">
 		  		<td class="iTable">{{sample.itemCode | limitTo:17}}</td>
-		  		<td class="iTable" contentEditable="{{$ctrl.newAssembly}}" ng-model="sample.itemAmount" type="number">{{sample.itemAmount}}</td>
+		  		<td class="iTable" contentEditable="{{$ctrl.newAssembly || $ctrl.newOrder}}" ng-model="sample.itemAmount" type="number">{{sample.itemAmount}}</td>
 		  		<td class="iTable">{{sample.neto}}</td>
 		  		<td class="iTable">{{sample.insertedAmount}}</td>
 		  		<td class="iTable">{{sample.totalPendingAmount}}</td>		  		

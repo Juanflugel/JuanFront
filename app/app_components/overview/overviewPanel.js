@@ -19,6 +19,7 @@
 			console.log(query);
 			shop.items.query(query,function(data){
 				ctrl.collection = data;
+				ctrl.currentlySelected = [];
 			});
 		};
 

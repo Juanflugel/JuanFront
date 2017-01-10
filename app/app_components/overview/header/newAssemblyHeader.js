@@ -1,7 +1,7 @@
 angular.module('eStock.overview.newAssemblyHeader',[])
 .component('newAssemblyHeader',{
 	templateUrl:'app_components/overview/header/newAssemblyHeader.html',
-	controller : ['shop','$mdDialog',newAssemblyHeaderController],
+	controller : ['shop','auxiliarFuctions','$mdDialog',newAssemblyHeaderController],
     require: {parent:'^viewPanel'},
     bindings:{
         collection:'=',
@@ -13,7 +13,7 @@ angular.module('eStock.overview.newAssemblyHeader',[])
     }
 });
 
-function newAssemblyHeaderController (shop,$mdDialog){
+function newAssemblyHeaderController (shop,auxiliarFuctions,$mdDialog){
     var ctrl = this;
     // A COLLECTION WITH ALL THE ITEMS THAT WILL BUILD THE ASSEMBLY
     ctrl.itemsForAssembly = [];
@@ -22,12 +22,14 @@ function newAssemblyHeaderController (shop,$mdDialog){
         ctrl.assembly = {};
         ctrl.itemsForAssembly = [];
         ctrl.currentlySelected = [];
-        //_.map(ctrl.collection,function (obj){return obj.insert === false;});
+        auxiliarFuctions.resetCollection(ctrl.collection); // JUST TO SET THE INSERT PROPERTY TO FALSE AGAIN
         ctrl.newAssembly = false;
     };
 
     ctrl.insertItemsInAssembly = function(){
         Array.prototype.push.apply(ctrl.itemsForAssembly,ctrl.currentlySelected);
+        ctrl.currentlySelected = [];
+        auxiliarFuctions.resetCollection(ctrl.collection); // JUST TO SET THE INSERT PROPERTY TO FALSE AGAIN
     };
 
     ctrl.createNewAssembly = function(newObj){

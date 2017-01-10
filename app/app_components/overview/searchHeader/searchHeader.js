@@ -49,6 +49,7 @@ function searchHeaderController (shop) {
         query[ctrl.filterModel.queryObjKey] = ctrl.queryTag;
         shop.items.query(query,function (response){
             ctrl.collection = response;
+            ctrl.currentlySelected = [];
         },function (error){});
 
     };

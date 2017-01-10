@@ -2,6 +2,16 @@ angular.module('auxiliarFuctions', [])
 .factory('auxiliarFuctions', handleInformationFunctions);
 
 function handleInformationFunctions (){
+
+    // reset the insert property to false in a collection
+    var resetCollection = function(collection){
+        var resetedCollection = [];
+        _.each(collection,function (obj){
+            obj.insert = false;
+            resetedCollection.push(obj);
+        });
+        return resetedCollection;
+    };
 	// this is a function to ensure the csv files has all the properties it need to be consistent
 	var normalizeData = function(collection){ 
         var readyForOrder = [];
@@ -21,6 +31,7 @@ function handleInformationFunctions (){
 
 
     return {
-    	normalizeData :normalizeData 
+    	normalizeData :normalizeData,
+        resetCollection : resetCollection 
     };
 };

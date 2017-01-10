@@ -19,10 +19,10 @@
 			{{$ctrl.itemsToOrder.length}} items resquested in the Order
 		</span>
 		<span ></span>
-		<span layout="row" layout-align="center center" ng-click="$ctrl.insertItemsInAssembly()" flex ="15">
+		<span layout="row" layout-align="center center" ng-click="$ctrl.addItemsToOrder()" flex ="15">
 			<i class="fa fa-upload text-success"></i> &nbsp; Insert Items
 		</span>
-		<span class="formButtons" ng-hide="$ctrl.formOrder.number.$error.required || $ctrl.formOrder.name.$error.required" layout="row" layout-align="center center" ng-click="$ctrl.createNewAssembly($ctrl.assembly)" >
+		<span class="formButtons" ng-hide="$ctrl.formOrder.number.$error.required || $ctrl.formOrder.name.$error.required" layout="row" layout-align="center center" ng-click="$ctrl.createNewOrder($ctrl.order)" >
 			<i class="fa fa-check-circle fa-lg text-success"></i>
 			 &nbsp; Create Order
 		</span>
