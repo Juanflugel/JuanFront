@@ -1,12 +1,12 @@
-<md-card layout="row" flex>
+<md-card layout="row" flex layout-align="center center">
 	<!-- SEARCH COMPONENT  -->
 	<search-header flex collection='$ctrl.collection' currently-selected="$ctrl.currentlySelected"></search-header>
 	<!-- THE DROP DOWN MENU AT THE RIGTH OF THE PAGE -->
 	<span id="csvDownloadTag" ng-csv="$ctrl.toDownload" filename="Pendings.csv" csv-header="['Item Code','Item Name', 'Item Type', 'Provider','Baugruppe','Stock','Needed']" charset="utf-8"></span>
-	<md-menu-bar class="searchHeader">
+	<md-menu-bar >
 		<md-menu class="md-secondary">
 	        <md-button class="md-icon-button" aria-label="Open" ng-click="$mdOpenMenu($event)">
-	            <i class="fa fa-ellipsis-v fa-lg"aria-hidden="true"></i>
+	            <i class="fa fa-ellipsis-v fa-lg" aria-hidden="true"></i>
 	        </md-button>
 	        <md-menu-content width="4">
 	        	<md-menu-item>

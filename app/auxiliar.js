@@ -2,6 +2,15 @@ angular.module('auxiliarFuctions', [])
 .factory('auxiliarFuctions', handleInformationFunctions);
 
 function handleInformationFunctions (){
+    // 
+    var getJustCodes = function(collection){
+            var codeCol = [];
+            _.each(collection,function (obj){
+                var a = obj.itemCode;
+                codeCol.push(a);
+            });
+            return codeCol;
+    };
 
     // reset the insert property to false in a collection
     var resetCollection = function(collection){
@@ -29,9 +38,32 @@ function handleInformationFunctions (){
         return readyForOrder;
     };
 
+     var addResumeInsertedAndPending = function(colStock,colResume){ // to show the total assmebled and  pending amounts to be assembled in open projects 
+            
+            var objsWithResumedAmounts = [];
+            _.each(colStock,function (stockObj){
+                _.each(colResume,function (resumeObj) {
+                    if(resumeObj.itemCode === stockObj.itemCode){
+                        stockObj.totalPendingAmount = resumeObj.totalPendingAmount || 0;
+                        stockObj.insertedAmount = resumeObj.insertedAmount || 0;
+                        stockObj.neto = stockObj.itemAmount - stockObj.totalPendingAmount;
+                        objsWithResumedAmounts.push(stockObj);
+                    }
+                });
+
+                if(!stockObj.totalPendingAmount && !stockObj.insertedAmount){
+                  stockObj.totalPendingAmount = 0;
+                  stockObj.insertedAmount = 0;
+                  stockObj.neto = stockObj.itemAmount - stockObj.totalPendingAmount;
+                  objsWithResumedAmounts.push(stockObj);
+                }                
+            });
+    };
 
     return {
     	normalizeData :normalizeData,
-        resetCollection : resetCollection 
+        resetCollection : resetCollection,
+        addResumeInsertedAndPending :addResumeInsertedAndPending,
+        getJustCodes:getJustCodes
     };
 };

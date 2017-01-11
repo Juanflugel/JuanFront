@@ -13,7 +13,17 @@ angular.module('eStock.overview.iForm',[])
     }
 });
 
-function iFormController (){
-	
+function iFormController (shop){
+	var ctrl = this;
+    
+    ctrl.updateObj = function(obj){
+        var id = obj._id;
+        shop.items.update({_id:id},obj,function (response){
+            alert(response.message);      
+                ctrl.editItem = false;               
+            },function (error){
+            console.log('error : '+ error.status +" "+ error.statusText);
+        });
+    };
 	
 }

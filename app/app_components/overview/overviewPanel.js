@@ -3,6 +3,7 @@
   
 	angular.module('eStock.overview.panel',[])
 	.component('viewPanel',{
+		transclude: true,
 	    templateUrl:'app_components/overview/overviewPanel.html',
 	    controller : ['shop','$timeout','auxiliarFuctions',overviewPanelController]
 	})
@@ -12,6 +13,16 @@
 		ctrl.companyId = shop.getCompanyId();
 		ctrl.filterBy = shop.getCompanyFilters();
 
+		ctrl.addPendingsAndAssembled = function(query,arrayCodes){
+			query.codesArray = arrayCodes;
+			shop.totalInsertedAndPending.query(query,function (data){
+            auxiliarFuctions.addResumeInsertedAndPending(ctrl.collection,data);
+
+	        },function (error){
+	            console.log(error);
+	        });
+		};
+
 		ctrl.queryItems = function(){
 			var query = {};
 			query.companyId = ctrl.companyId;
@@ -20,6 +31,8 @@
 			shop.items.query(query,function(data){
 				ctrl.collection = data;
 				ctrl.currentlySelected = [];
+				var arrayCodes = auxiliarFuctions.getJustCodes(ctrl.collection);				
+				ctrl.addPendingsAndAssembled(query,arrayCodes)
 			});
 		};
 
@@ -62,6 +75,8 @@
 			ctrl.viewItem = false;
 			ctrl.newOrder = true;
 		};
+
+
 
 	}
 

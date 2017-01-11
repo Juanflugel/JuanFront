@@ -37,6 +37,8 @@ function newOrderHeaderController (shop,auxiliarFuctions,$mdDialog){
         console.log(query);
          shop.items.query(query,function (response){
             ctrl.collection = response;
+            var arrayCodes = auxiliarFuctions.getJustCodes(ctrl.collection);                
+            ctrl.parent.addPendingsAndAssembled(query,arrayCodes); 
         },function (error){});
     };
 
