@@ -1,4 +1,5 @@
-
+(function(angular) {
+  'use strict';
 
 angular.module('eStock.overview.iTable',[])
 .component('iTable',{
@@ -76,3 +77,5 @@ function iTableController (shop,$mdDialog){
   };
     
 }
+
+})(window.angular);

@@ -36,5 +36,12 @@ md-menu-content.md-menu-bar-menu.md-dense .md-button {
 
 /*TO GIVE A BETTER APARIENCE TO THE IFORM COMPONENT*/
 .iForm {
-	margin: 10px 20px;
+	margin: 5px 20px;
+}
+.md-subheader{
+	background-color: transparent;
+}
+.md-subheader .md-subheader-content {
+	padding: 10px;
+	
 }

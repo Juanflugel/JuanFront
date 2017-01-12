@@ -28,7 +28,7 @@
 			<md-input-container class="iForm" ng-hide ="!$ctrl.obj.itemProvider && $ctrl.justInfo" style="width:175px;margin-right:10px;">
         		<label>Provider</label>
 		        <md-select ng-model="$ctrl.obj.itemProvider" ng-disabled="$ctrl.justInfo">    				
-		          <md-option ng-repeat="pro in providersList" value="{{pro}}">
+		          <md-option ng-repeat="pro in $ctrl.providersList" value="{{pro}}">
 		            {{pro}}
 		          </md-option>
 		        </md-select>
@@ -41,7 +41,7 @@
 			<md-input-container class="iForm" flex="20" ng-hide ="!$ctrl.obj.itemAssemblyName && $ctrl.justInfo" style="width:175px;margin-right:10px;">
         		<label>Assembly Name</label>
 		        <md-select ng-model="$ctrl.obj.itemAssemblyName" ng-disabled="$ctrl.justInfo">
-		          <md-option ng-repeat="assembly in assembliesList" value="{{assembly}}">
+		          <md-option ng-repeat="assembly in $ctrl.assembliesList" value="{{assembly}}">
 		            {{assembly}}
 		          </md-option>
 		        </md-select>
@@ -80,7 +80,7 @@
 			
 			
 		    <div ng-show="$ctrl.editItem">
-		    	<i ng-hide="iform.code.$error.required || iform.name.$error.required"  ng-click="$ctrl.updateObj($ctrl.obj)" layout-padding class="fa fa-check-circle fa-2x text-success" >	
+		    	<i ng-hide="iform.code.$error.required || iform.name.$error.required"  ng-click="$ctrl.updateObj($ctrl.obj,$event)" layout-padding class="fa fa-check-circle fa-2x text-success" >	
 		    </i>&nbsp; &nbsp; &nbsp;
 		    </div>
 		    <div ng-show="$ctrl.editItem">

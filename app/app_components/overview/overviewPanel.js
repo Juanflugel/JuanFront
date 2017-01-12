@@ -15,6 +15,7 @@
 
 		ctrl.addPendingsAndAssembled = function(query,arrayCodes){
 			query.codesArray = arrayCodes;
+			query.projectState = 'OPEN';
 			shop.totalInsertedAndPending.query(query,function (data){
             auxiliarFuctions.addResumeInsertedAndPending(ctrl.collection,data);
 

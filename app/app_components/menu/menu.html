@@ -1,7 +1,7 @@
 <md-toolbar class="md-hue-2">
       <div class="md-toolbar-tools">          
         <span ng-click="$ctrl.toggleLeft()" layout-padding class="md-button">        	
-			<i class="fa fa-bars " aria-hidden="true"></i>
+			<i class="fa fa-bars fa-lg " aria-hidden="true"></i>
         </span> 
         <h2>
           <span>eStock</span>
@@ -24,13 +24,13 @@
 	        <a ui-sref="app.Projects" class="md-button" ng-click="$ctrl.close()">
 	        	<i class="fa fa-puzzle-piece fa-lg" aria-hidden="true"></i>&nbsp; Projects
 	        </a>
-	        <a ui-sref="app.Assemblies" class="md-button" ng-click="close()">
+	        <a ui-sref="app.Assemblies" class="md-button" ng-click="$ctrl.close()">
 	        	<i class="fa fa-cubes fa-lg" aria-hidden="true"></i>&nbsp; Assemblies
 	        </a>
-	        <a ui-sref="app.Overview" class="md-button" ng-click="close()">
+	        <a ui-sref="app.Overview" class="md-button" ng-click="$ctrl.close()">
 	        	<i class="fa fa-desktop  fa-lg"></i>&nbsp; Overview
 	        </a>
-	        <a ui-sref="app.Company" class="md-button" ng-click="close()">
+	        <a ui-sref="app.Company" class="md-button" ng-click="$ctrl.close()">
 	        	<i class="fa fa-home fa-lg" aria-hidden="true"></i>&nbsp; Company
 	        </a>
 

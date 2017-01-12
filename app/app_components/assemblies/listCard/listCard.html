@@ -1,0 +1,108 @@
+<md-card layout="row" flex >
+    <md-list flex>
+        <!--  sub header de la seccion assemblies -->
+        <md-subheader  class="md-no-sticky">        
+            <div layout="row">
+                <span flex >Assemblies</span>
+                <span flex></span>
+                     <span ng-click="startNewAssembly=true">
+                        <i class="fa fa-plus fa-lg" ></i>
+                        <md-tooltip>
+                            Create a New Asembly
+                        </md-tooltip>
+                    </span>
+                </div>
+        </md-subheader>
+             
+        <md-progress-linear md-mode="query" ng-disabled="progressBardisable"></md-progress-linear>
+             <!--  sub header de la seccion assemblyos -->
+            <md-divider ></md-divider>
+               <!-- Form To create a new assembly -->
+               <div layout="column"  flex ng-show="startNewAssembly || editAssemblyInfo"> <br>
+
+                    <md-input-container >
+                        <label>assembly Name</label>
+                        <input type="text" ng-model="Objassembly.assemblyName" autofocus>
+                    </md-input-container>
+                    <md-input-container >
+                        <label>assembly Number</label>
+                        <input type="text" ng-model="Objassembly.assemblyNumber">
+                    </md-input-container>
+
+                     <div layout="row" layout-margin>
+                        <md-input-container >
+                            <label>Sub Assembly Name</label>
+                            <input type="text" ng-model="subObj.subAssemblyName">
+                        </md-input-container>
+                        <md-input-container >
+                            <label>Sub Assembly Number</label>
+                            <input type="text" ng-model="subObj.subAssemblyNumber">
+                        </md-input-container>
+                         <i ng-click="pushSubAssembly(subObj)"  layout-padding class="fa fa-check-circle fa-lg text-success" >    
+                        </i>
+                    </div>
+
+                    <div layout="row">
+                        <table class="table table-hover table-responsive panel">  
+                            <thead>
+                                <tr class="table">
+                                    <th class="text-center">Sub Assembly</th>               
+                                    <th class="text-center">Number</th>
+                                    <th class="text-center">Del</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="subAssembly in Objassembly.subAssemblies" class="text-center">
+                                    <td class="iTable">{{subAssembly.subAssemblyName}}</td>
+                                    <td class="iTable">{{subAssembly.subAssemblyNumber}}</td>
+                                    <td class="iTable"> <i ng-click="pullSubAssembly(subAssembly)"class="fa fa-times"></i></td>
+                                </tr>
+                            </tbody>   
+                        </table>
+                    </div>     
+                                             
+                   
+
+                    <div layout="row" layout-margin flex>
+                        <span flex></span>
+
+                        <i ng-show="startNewAssembly" ng-click="createAssembly(Objassembly)"  layout-margin class="fa fa-check-circle fa-2x text-success" >    
+                        </i>
+                        <i ng-show="startNewAssembly" ng-click="startNewAssembly=false" layout-margin   class="fa fa-times fa-2x text-danger"></i>
+                        <i ng-hide="startNewAssembly" ng-click="updateAssemblyInfo(Objassembly)"  layout-margin class="fa fa-check-circle fa-2x text-success" >    
+                        </i>
+                        <i ng-hide="startNewAssembly" ng-click="abortEditAssemblyInfo();closeForm()" layout-margin   class="fa fa-times fa-2x text-danger"></i>
+                        &nbsp; &nbsp;
+                    </div>      
+
+                </div>
+                <!-- Form To create a new assembly -->
+            <md-divider ></md-divider>
+                <md-list-item class="md-2-line"  ng-repeat="assembly in $ctrl.assemblies" ng-click="showAssemblyItems(assembly,$index)">
+                    <img src="icon.png" class="md-avatar" alt="" />
+                    <div class="md-list-item-text" layout="column">
+                        <p>{{assembly.assemblyName}}</p>
+                        <p>{{assembly.assemblyNumber}}</p>
+                    </div>
+                 <md-menu class="md-secondary">
+                    <md-button class="md-icon-button" aria-label="Open" ng-click="$mdOpenMenu($event)">
+                        <i class="listMenu fa fa-ellipsis-v fa-lg"aria-hidden="true"></i>
+                    </md-button>
+                    <md-menu-content width="4">
+                        <md-menu-item>
+                            <md-button ng-click="editAssembly(assembly)">
+                                Edit Assembly 
+                            </md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ng-click="deleteAssembly(assembly)">
+                             Delete Assembly
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+                  <md-divider ></md-divider>
+                </md-list-item>         
+    </md-list>
+
+</md-card>

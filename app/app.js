@@ -3,7 +3,8 @@ angular.module('eStockFront',[
   'services','auxiliarFuctions',
   'eStock.menu',
   'eStock.overview.panel','eStock.overview.searchHeader','eStock.overview.iTable','eStock.overview.iForm',
-  'eStock.overview.newAssemblyHeader','eStock.overview.newOrderHeader'
+  'eStock.overview.newAssemblyHeader','eStock.overview.newOrderHeader',
+  'eStock.assemblies.panel','eStock.assemblies.listCard'
 
   ])
 
@@ -21,7 +22,7 @@ angular.module('eStockFront',[
 
 .config(['$stateProvider','$urlRouterProvider',function($stateProvider, $urlRouterProvider) {
   
-    $urlRouterProvider.otherwise("app/overview");
+    $urlRouterProvider.otherwise("app/Overview");
     // Now set up the states
     $stateProvider
     .state('app', {
@@ -29,9 +30,13 @@ angular.module('eStockFront',[
             url: '/app',
             template: '<menu-frame></menu-frame>'
     })
-    .state('app.overview',{
-          url:'/overview',
+    .state('app.Overview',{
+          url:'/Overview',
           template:'<view-panel></view-panel>'
+    })
+    .state('app.Assemblies',{
+          url:'/Assemblies',
+          template:'<assemblies-panel></assemblies-panel>'
     })
 }])
 .directive('contenteditable', function() {

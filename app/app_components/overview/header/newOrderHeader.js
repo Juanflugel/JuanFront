@@ -1,3 +1,6 @@
+(function(angular) {
+  'use strict';
+
 angular.module('eStock.overview.newOrderHeader',[])
 .component('newOrderHeader',{
 	templateUrl:'app_components/overview/header/newOrderHeader.html',
@@ -53,3 +56,6 @@ function newOrderHeaderController (shop,auxiliarFuctions,$mdDialog){
         console.log(obj);
     };
 }
+
+
+})(window.angular);
