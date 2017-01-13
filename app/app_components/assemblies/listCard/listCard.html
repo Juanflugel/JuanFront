@@ -3,7 +3,7 @@
         <!--  sub header de la seccion assemblies -->
         <md-subheader  class="md-no-sticky">        
             <div layout="row">
-                <span flex >Assemblies</span>
+                <span flex > {{$ctrl.assemblies.length}} Assemblies</span>
                 <span flex></span>
                      <span ng-click="startNewAssembly=true">
                         <i class="fa fa-plus fa-lg" ></i>
@@ -14,7 +14,7 @@
                 </div>
         </md-subheader>
              
-        <md-progress-linear md-mode="query" ng-disabled="progressBardisable"></md-progress-linear>
+        <md-progress-linear md-mode="query" ng-disabled="$ctrl.progressBardisable"></md-progress-linear>
              <!--  sub header de la seccion assemblyos -->
             <md-divider ></md-divider>
                <!-- Form To create a new assembly -->
@@ -86,7 +86,7 @@
                     </div>
                  <md-menu class="md-secondary">
                     <md-button class="md-icon-button" aria-label="Open" ng-click="$mdOpenMenu($event)">
-                        <i class="listMenu fa fa-ellipsis-v fa-lg"aria-hidden="true"></i>
+                        <i class="fa fa-ellipsis-v fa-lg" aria-hidden="true"></i>
                     </md-button>
                     <md-menu-content width="4">
                         <md-menu-item>

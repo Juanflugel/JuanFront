@@ -4,7 +4,7 @@ angular.module('eStockFront',[
   'eStock.menu',
   'eStock.overview.panel','eStock.overview.searchHeader','eStock.overview.iTable','eStock.overview.iForm',
   'eStock.overview.newAssemblyHeader','eStock.overview.newOrderHeader',
-  'eStock.assemblies.panel','eStock.assemblies.listCard'
+  'eStock.assemblies.panel','eStock.assemblies.listCard','eStock.assemblies.header','eStock.assemblies.itemsAssemblyTable'
 
   ])
 
@@ -36,7 +36,7 @@ angular.module('eStockFront',[
     })
     .state('app.Assemblies',{
           url:'/Assemblies',
-          template:'<assemblies-panel></assemblies-panel>'
+          template:'<assemblies-panel layout></assemblies-panel>'
     })
 }])
 .directive('contenteditable', function() {
