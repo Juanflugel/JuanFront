@@ -1,8 +1,8 @@
 <md-card id="top" flex layout="row" layout-align="center center">
     
-    <span flex class="headerIcon">&nbsp;&nbsp;&nbsp;{{$ctrl.assemblyInfo.assemblyName}}</span>
-    <span flex class="headerIcon">{{$ctrl.assemblyInfo.assemblyNumber}}</span>
-    <span flex class="headerIcon">{{$ctrl.assemblyInfo.assemblyItems.length}} Bauteile</span>               
+    <span flex class="headerItem">{{$ctrl.assemblyInfo.assemblyName}}</span>
+    <span flex class="headerItem">{{$ctrl.assemblyInfo.assemblyNumber}}</span>
+    <span flex class="headerItem">{{$ctrl.assemblyInfo.assemblyItems.length}} Bauteile</span>               
                 
 
     <md-input-container  md-no-float class="searchHeader" flex="25">
@@ -11,8 +11,8 @@
         </md-select>
     </md-input-container>          
 
-	 		<span ng-hide="insertObjInAssembly"  ng-click="newObj()">
-                    <i   class="fa fa-plus fa-lg headerIcon" ></i>
+	 		<span ng-hide="insertObjInAssembly" ng-click="newObj()">
+                    <i   class="fa fa-plus fa-lg headerIcon " ></i>
                     <md-tooltip>
                         Insert Items 
                     </md-tooltip>

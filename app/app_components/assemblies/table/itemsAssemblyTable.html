@@ -18,11 +18,8 @@
 		  		<td class="iTable">{{sample.itemName | limitTo:30}}</td>		  		
 		 		<td ng-hide="$ctrl.newAssembly || $ctrl.newOrder" class="iTable">
 		 		 	<i class="fa fa-pencil-square-o" ng-click="$ctrl.editObj(sample)"></i>&nbsp;&nbsp;
-		 		 	<i class="fa fa-info-circle" ng-click="$ctrl.readObj(sample)"></i>&nbsp;&nbsp;
 			 		<i class="fa fa-trash" ng-click="$ctrl.deleteObj(sample,$event)"></i>
-			 		
 		  		</td>
-		  		<td class="iTable" ng-show="$ctrl.newAssembly || $ctrl.newOrder"><input type="checkbox" ng-change="$ctrl.filterSelectedItems()" ng-model="sample.insert"></td>
 	   		</tr>
     		</tbody>    
 	</table>  

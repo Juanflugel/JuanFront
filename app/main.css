@@ -47,6 +47,10 @@ md-menu i{
 .md-subheader .md-subheader-content {
 	padding: 5px 15px;
 }
+.headerItem{
+	padding: 25px 45px;
+	color: rgba(0,0,0,0.54);
+}
 .headerIcon{
 	padding: 25px 15px;
 	color: rgba(0,0,0,0.54);
