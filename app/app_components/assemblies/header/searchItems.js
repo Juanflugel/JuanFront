@@ -1,20 +1,20 @@
 
-angular.module('eStock.overview.searchHeader',[])
-.component('searchHeader',{
-    templateUrl:'app_components/overview/searchHeader/searchHeader.html',
-    controller : ['shop','auxiliarFuctions',searchHeaderController],
-    require: {parent:'^viewPanel'},
+angular.module('eStock.overview.searchItems',[])
+.component('searchItems',{
+    templateUrl:'app_components/assemblies/header/searchItems.html',
+    controller : ['shop','auxiliarFuctions',searchItemsController],
     bindings:{
-    	collection:'=',
-        currentlySelected :'='
+    	collectionSI:'=',
+        currentlySelected :'=',
+        startInsertItems:'='
     }
 })
 
 
-function searchHeaderController (shop,auxiliarFuctions) {
+function searchItemsController (shop,auxiliarFuctions) {
 	var ctrl = this;
     ctrl.companyId = shop.getCompanyId();
-	ctrl.collection = [];
+	ctrl.collectionSI = [];
     ctrl.filterBy = shop.getCompanyFilters();
 
     // ctrl.addPendingsAndAssembled = ctrl.parent.addPendingsAndAssembled;
@@ -29,28 +29,22 @@ function searchHeaderController (shop,auxiliarFuctions) {
         if (ctrl.search === '') return;
         else{
             shop.itemsCodeOrName.query(query,function (data){
-                ctrl.collection = data;
+                ctrl.collectionSI = data;
                 ctrl.currentlySelected = [];
-                                
-                var arrayCodes = auxiliarFuctions.getJustCodes(ctrl.collection);                
-                ctrl.parent.addPendingsAndAssembled(query,arrayCodes); 
             	},function (error){
                         console.log(error);
                 }
             ); 
         }     
     };
-    
     ctrl.queryByFilter = function(){
         ctrl.search = '';
         var query = {};
         query.companyId = ctrl.companyId;
         query[ctrl.filterModel.queryObjKey] = ctrl.queryTag;
         shop.items.query(query,function (response){
-            ctrl.collection = response;
+            ctrl.collectionSI = response;
             ctrl.currentlySelected = [];
-            var arrayCodes = auxiliarFuctions.getJustCodes(ctrl.collection);                
-            ctrl.parent.addPendingsAndAssembled(query,arrayCodes); 
         },function (error){});
 
     };

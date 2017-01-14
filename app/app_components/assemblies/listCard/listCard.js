@@ -6,7 +6,8 @@ angular.module('eStock.assemblies.listCard',[])
     bindings:{
         assemblies:'=',
         assemblyInfo:'=',
-        collection:'='
+        collection:'=',
+        subACol:'='
     }
 });
 
@@ -24,12 +25,14 @@ function assemblyListCardController (shop,$mdDialog){
             ctrl.progressBardisable = true;
             ctrl.assemblyInfo = ctrl.assemblies[0];
             ctrl.collection = ctrl.assemblyInfo.assemblyItems;
+            ctrl.subACol = ctrl.assemblyInfo.subAssemblies;
             
     });
 
     ctrl.showAssemblyDetails = function(obj){
         ctrl.assemblyInfo = obj
         ctrl.collection = ctrl.assemblyInfo.assemblyItems;
+        ctrl.subACol = ctrl.assemblyInfo.subAssemblies;
     };
 
     ctrl.editAssembly = function (assembly){
@@ -37,7 +40,7 @@ function assemblyListCardController (shop,$mdDialog){
         ctrl.editAssemblyInfo = true;
         ctrl.parent.gotoHash('top');
     };
-    
+
     ctrl.forgetEditAssembly = function(){
         ctrl.Objassembly = {};
         ctrl.editAssemblyInfo = false;

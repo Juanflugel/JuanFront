@@ -5,11 +5,13 @@
 	.component('itemsAssemblyTable',{
 		//transclude: true,
 	    templateUrl:'app_components/assemblies/table/itemsAssemblyTable.html',
-	    controller : ['shop','$timeout','auxiliarFuctions',itemsAssemblyTableController],
+	    controller : ['shop','auxiliarFuctions',itemsAssemblyTableController],
 	    require: {parent:'^assembliesPanel'},
 	    bindings:{
 	    	assemblyInfo:'=',
-	    	collection:'='
+	    	collection:'=',
+	    	obj:'=', // obj related to the items
+	    	startEditItem :'='
 	    }
 	});
 
@@ -24,6 +26,12 @@
     	};
 
     	console.log(ctrl);
+
+    	ctrl.editItemInAssembly = function(obj){
+    		ctrl.obj = obj;
+    		ctrl.startEditItem = true;
+    		ctrl.parent.gotoHash('top');
+    	}
 
 		
 	}

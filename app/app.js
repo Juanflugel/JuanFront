@@ -4,7 +4,8 @@ angular.module('eStockFront',[
   'eStock.menu',
   'eStock.overview.panel','eStock.overview.searchHeader','eStock.overview.iTable','eStock.overview.iForm',
   'eStock.overview.newAssemblyHeader','eStock.overview.newOrderHeader',
-  'eStock.assemblies.panel','eStock.assemblies.listCard','eStock.assemblies.header','eStock.assemblies.itemsAssemblyTable'
+  'eStock.assemblies.panel','eStock.assemblies.listCard','eStock.assemblies.header','eStock.assemblies.itemsAssemblyTable',
+  'eStock.assemblies.assemblyItemsForm','eStock.overview.searchItems','eStock.assemblies.itemsStockTable'
 
   ])
 

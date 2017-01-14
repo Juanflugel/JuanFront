@@ -1,0 +1,45 @@
+	<md-card  layout-margin layout-padding ng-show="$ctrl.startEditItem">
+        <div layout="row" layout-wrap >
+
+            <md-input-container flex="25" class="iForm">
+                <label>Item Id (Bar Code)</label>
+                <input type="text" ng-model="$ctrl.obj.itemCode">
+            </md-input-container>
+
+            <md-input-container  flex="50" class="iForm">
+                <label>Item Name</label>
+                <input type="text" ng-model="$ctrl.obj.itemName">
+            </md-input-container>
+
+            <md-input-container flex="10" class="iForm">
+                <label>Item Amount</label>
+                <input type="number" ng-model="$ctrl.obj.itemAmount">
+            </md-input-container>
+
+            <md-input-container  md-no-float class="iForm">
+                <md-select ng-model="$ctrl.obj.subAssemblyNumber" placeholder="Select a Sub Assembly" ng-change="$ctrl.setOtherValue($ctrl.obj)">
+                <md-option ng-value ="subA.subAssemblyNumber" ng-repeat="subA in $ctrl.subACol">{{subA.subAssemblyNumber | uppercase}}</md-option>
+                </md-select>
+            </md-input-container>
+
+            <md-input-container  md-no-float class="iForm">
+                <md-select ng-model="$ctrl.obj.subAssemblyName" placeholder="Select a Sub Assembly" ng-change="$ctrl.setOtherValue($ctrl.obj)">
+                <md-option ng-value ="subA.subAssemblyName" ng-repeat="subA in $ctrl.subACol">{{subA.subAssemblyName | uppercase}}</md-option>
+                </md-select>
+            </md-input-container>   
+              
+          <!-- editing part -->
+            <div>
+                <i  ng-click="updateItemInAssembly($ctrl.obj)" layout-padding class="fa fa-check-circle fa-2x text-success" >  
+                </i>
+            </div> &nbsp; &nbsp;
+            <div>
+                <i  ng-click="$ctrl.startEditItem=false"  layout-padding class="fa fa-times fa-2x text-danger">                    
+                </i>            
+            </div>
+            <!-- editing part -->        
+        </div>
+    
+  </div>
+
+</md-card>

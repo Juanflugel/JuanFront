@@ -1,0 +1,27 @@
+<md-card layout="row" flex layout-align="center center" ng-show="$ctrl.startInsertItems">
+
+		<md-input-container md-no-float flex class="searchHeader">
+			<md-icon><i class="fa fa-search fa-lg "></i></md-icon>
+			<input aria-label="search" type="text" ng-model="$ctrl.search" ng-model-options="{ debounce: 400 }" ng-change="$ctrl.queryByCodeOrName()" placeholder="Look For all items you have in stock">
+		</md-input-container>
+
+		<md-input-container flex="20" md-no-float class="searchHeader">
+			<md-select ng-model="$ctrl.filterModel" placeholder="Filter By">
+			<md-option ng-value ="opt" ng-repeat="opt in $ctrl.filterBy">{{opt.tagToShow | uppercase}}</md-option>
+			</md-select>
+		</md-input-container >
+		
+		<p layout-margin layout-padding>:</p>
+
+		<md-input-container flex="20" md-no-float class="searchHeader"> 
+			<md-select ng-model="$ctrl.queryTag" placeholder="Select a {{$ctrl.filterModel.tagToShow}}" ng-change="$ctrl.queryByFilter()">
+			<md-option ng-value ="tag" ng-repeat="tag in $ctrl.filterModel.array">{{tag}}</md-option>
+			</md-select>
+		</md-input-container>
+		<span><i layout-padding class="fa fa-floppy-o fa-lg text-primary"></i>
+               <md-tooltip> Insert Items </md-tooltip>
+        </span>
+		&nbsp; &nbsp;
+		<i ng-click="$ctrl.startInsertItems=false"  class="fa fa-times fa-lg text-danger"></i>
+		 &nbsp; &nbsp; &nbsp; &nbsp; 
+</md-card>

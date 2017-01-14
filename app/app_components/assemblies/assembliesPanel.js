@@ -20,11 +20,6 @@
         }
     	};
 
-		// shop.assemblies.query({},function (response){
-	 //    	ctrl.assemblies = response;
-	 //        ctrl.progressBardisable = true;
-	 //        ctrl.assemblyInfo = ctrl.assemblies[0];
-  //   	})
 	}
 
 	

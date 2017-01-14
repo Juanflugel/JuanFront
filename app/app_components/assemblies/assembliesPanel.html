@@ -1,8 +1,12 @@
 
-<list-card flex="25" assemblies="$ctrl.assemblies" assembly-info="$ctrl.assemblyInfo" collection='$ctrl.collection'></list-card>
+<list-card flex="25" assemblies="$ctrl.assemblies" assembly-info="$ctrl.assemblyInfo" collection='$ctrl.collection' sub-a-col="$ctrl.subACol"></list-card>
 	<div flex>
-		<a-header flex assembly-info="$ctrl.assemblyInfo"></a-header>
-		<items-assembly-table assembly-info="$ctrl.assemblyInfo" collection='$ctrl.collection'> </items-assembly-table>
+		<a-header flex assembly-info="$ctrl.assemblyInfo" sub-a-col="$ctrl.subACol" start-insert-items="$ctrl.startInsertItems"></a-header>
+		<assembly-items-form obj="ctrl.obj" sub-a-col="$ctrl.subACol" start-edit-item="$ctrl.startEditItem"></assembly-items-form>
+
+		<search-items start-insert-items="$ctrl.startInsertItems" collection-s-i="$ctrl.collectionSI" currently-selected="$ctrl.currentlySelected"></search-items>
+		<items-stock-table collection-s-i="$ctrl.collectionSI" start-insert-items="$ctrl.startInsertItems"></items-stock-table>
+		<items-assembly-table assembly-info="$ctrl.assemblyInfo" collection='$ctrl.collection' obj="ctrl.obj" start-edit-item="$ctrl.startEditItem"> </items-assembly-table>
 	</div>
 	
 

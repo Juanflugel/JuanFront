@@ -5,7 +5,9 @@ angular.module('eStock.assemblies.header',[])
     require: {parent:'^assembliesPanel'},
     bindings:{
        assemblies:'=',
-       assemblyInfo:'='
+       assemblyInfo:'=',
+       subACol:'=',
+       startInsertItems:'='
     }
 });
 
@@ -13,7 +15,11 @@ function assemblyHeaderController (shop){
     console.log('From header'); 
     var ctrl = this;
 
-    	console.log(ctrl);
+    ctrl.newItem = function(){
+      console.log('gehts');
+      ctrl.startInsertItems = true;
+    };
+
     	
     
 }
